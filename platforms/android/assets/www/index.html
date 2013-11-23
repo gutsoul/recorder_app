@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+<style type="text/css">
+	button {
+		padding: 20px;
+	}
+	div {
+		font-size: 20px;
+	}
+</style>
+</head>
+<body>
+	<button type="button" id="start" onclick="startRec()">開始錄音</button>
+	<button type="button" id="stop" onclick="stopRec()">停止</button>
+		
+	<script type="text/javascript" charset="utf-8">
+	var mediaRec;
+	function onSuccess(){
+		alert("錄製成功");
+	};
+
+	function onError(err){
+		alert("錄製失敗: " + erro.code);
+	};
+
+	function startRec(){
+		// 設定錄製聲音後的檔案名稱
+		var src = "Download/myrecord.mp3";
+
+		mediaRec = new Media(src, onSuccess, onError);
+
+		// 開始錄音
+		mediaRec.startRecord();
+	};
+	
+	// 停止錄音
+	function stopRec(){
+		mediaRec.stopRecord();
+		alert('停止錄音');
+	};
+	</script>	
+</body>
+</html>
